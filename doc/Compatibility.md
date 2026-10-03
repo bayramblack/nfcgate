@@ -1,20 +1,20 @@
 # Compatibility
 
-This document states the compatibility of NFCGate's modes with different chipsets, devices, and ROM
+This document states the compatibility of UnderNet's modes with different chipsets, devices, and ROM
 versions.
 
 ## General
 
-NFCGate's patch to the Android NFC service only works with devices that use the NFC NCI
+UnderNet's patch to the Android NFC service only works with devices that use the NFC NCI
 specification. In our testings, Broadcom or NXP NFC chipsets use this specification.
 
 ### Determining the Chipset
 
-On the device, one can find the NFC chipset on the NFCGate status page.
+On the device, one can find the NFC chipset on the UnderNet status page.
 
 ### Desfire Workaround
 
-In previous versions of this application, NFCGate included a workaround for an Android NFC bug, that
+In previous versions of this application, UnderNet included a workaround for an Android NFC bug, that
 made it impossible to use with MiFare DESFire cards. This workaround is no longer part of the
 application due to complete code overhaul. We have not experienced the bug again. If you encounter
 that issue, please open an issue so the workaround can be included in the new version as well.

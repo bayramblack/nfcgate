@@ -17,18 +17,19 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace 'de.tu_darmstadt.seemoo.nfcgate'
+    namespace 'work.undernet.nfc'
 
     compileSdk = 36
     ndkVersion '28.2.13676358'
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
 
     defaultConfig {
-        applicationId 'de.tu_darmstadt.seemoo.nfcgate'
+        applicationId 'work.undernet.nfc'
         minSdkVersion 21
         targetSdkVersion 36
         multiDexEnabled true
@@ -98,6 +99,9 @@ android {
 }
 
 dependencies {
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+    implementation 'com.google.zxing:core:3.5.3'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
     //This must *NOT* be included
     //compile fileTree(dir: 'libs', include: ['*.jar'])
 

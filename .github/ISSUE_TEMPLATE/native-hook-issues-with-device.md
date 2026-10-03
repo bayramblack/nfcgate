@@ -9,7 +9,7 @@ assignees: ''
 
 **App Information***
 
-Please provide us with a screenshot of the "status" page in NFCGate.
+Please provide us with a screenshot of the "status" page in UnderNet.
 
 **Device Information*** Which device are you using and what OS are you running on it?
 

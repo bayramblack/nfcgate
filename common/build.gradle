@@ -24,7 +24,7 @@ android {
 
     productFlavors {}
 
-    namespace 'de.tu_darmstadt.seemoo.nfcgate.common'
+    namespace 'work.undernet.nfc.common'
 
     buildFeatures {
         buildConfig true

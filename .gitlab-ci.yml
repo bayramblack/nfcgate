@@ -28,7 +28,7 @@ lint:
     paths:
       # collects lint reports
       - app/build/reports/
-    name: "NFCGate-build-reports"
+    name: "UnderNet-build-reports"
 
 build:
   stage: build
@@ -38,7 +38,7 @@ build:
     paths:
       # collects APKs, logs, mapping/symbol files, etc.
       - app/build/outputs/
-    name: "NFCGate-debug"
+    name: "UnderNet-debug"
 
 release:
   stage: release
@@ -63,4 +63,4 @@ release:
     paths:
       # collects APKs, logs, mapping/symbol files, etc.
       - app/build/outputs/
-    name: "NFCGate-release"
+    name: "UnderNet-release"

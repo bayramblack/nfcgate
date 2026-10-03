@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a bug report to help us improve NFCGate
+about: Create a bug report to help us improve UnderNet
 title: ''
 labels: bug
 assignees: ''

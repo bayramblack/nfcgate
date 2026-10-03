@@ -33,6 +33,6 @@ jobs:
       - name: Upload debug APK as artifact
         uses: actions/upload-artifact@v7
         with:
-          name: NFCGate-debug
+          name: UnderNet-debug
           # collects APKs, logs, mapping/symbol files, etc.
           path: app/build/outputs/

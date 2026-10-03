@@ -32,44 +32,18 @@
         android:title="@string/settings_network"
         android:key="network"
         >
-        <EditTextPreference
-            android:title="@string/settings_hostname"
-            android:key="host"
-
-            android:summary="@string/settings_hostname_summary"
-            android:dialogMessage="@string/settings_hostname_dialog"
-            />
-        <EditTextPreference
-            android:title="@string/settings_port"
-            android:key="port"
-
-            android:summary="@string/settings_port_summary"
-            android:dialogMessage="@string/settings_port_dialog"
-            android:inputType="number"
-            android:maxLength="5"
-            android:defaultValue="5566"
-            />
-        <CheckBoxPreference
-            android:title="@string/settings_tls"
-            android:key="tls"
-
-            android:summary="@string/settings_tls_summary"
-            android:defaultValue="false"
-            />
-        <Preference
+<Preference
             android:title="@string/settings_reset_usertrust"
             android:key="reset_usertrust"
             android:summary="@string/settings_reset_usertrust_summary"
             />
-        <EditTextPreference
-            android:title="@string/settings_session"
-            android:key="session"
-
-            android:summary="@string/settings_session_summary"
-            android:dialogMessage="@string/settings_session_dialog"
-            android:inputType="number"
-            android:maxLength="2"
-            android:defaultValue="1"
+<EditTextPreference
+            android:title="@string/settings_session_secret"
+            android:key="session_secret"
+            android:summary="@string/settings_session_secret_summary"
+            android:dialogMessage="@string/settings_session_secret_dialog"
+            android:inputType="textPassword"
+            android:defaultValue=""
             />
     </PreferenceCategory>
     <PreferenceCategory

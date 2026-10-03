@@ -1,5 +1,5 @@
-#ifndef NFCGATE_EEMANAGER_H
-#define NFCGATE_EEMANAGER_H
+#ifndef UNDERNET_EEMANAGER_H
+#define UNDERNET_EEMANAGER_H
 
 #include <cinttypes>
 #include <set>
@@ -36,4 +36,4 @@ protected:
     std::set<uint16_t> mDeactivated;
 };
 
-#endif //NFCGATE_EEMANAGER_H
+#endif //UNDERNET_EEMANAGER_H

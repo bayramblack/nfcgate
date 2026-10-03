@@ -14,7 +14,7 @@ All ISO 14443 layer traffic between the application and the tag, or in case of H
 2. Start recording by pressing `Begin Capture`.
 3. Switch to 3rd party app, that should be captured.
 4. Use NFC functions of 3rd party app.
-5. Switch back to NFCGate.
+5. Switch back to UnderNet.
 6. Stop recording by pressing `Stop Capture`.
 
 Captured NFC traffic is available in `Logging`. From there, it can be exported as a pcapng file.

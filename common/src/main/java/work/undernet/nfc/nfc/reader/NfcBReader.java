@@ -1,0 +1,44 @@
+package work.undernet.nfc.nfc.reader;
+
+import android.nfc.Tag;
+import android.nfc.tech.NfcB;
+
+import work.undernet.nfc.nfc.config.ConfigBuilder;
+import work.undernet.nfc.nfc.config.OptionType;
+
+/**
+ * Implements a NFCTagReader using the NfcB technology
+ */
+public class NfcBReader extends NFCTagReader {
+    /**
+     * Provides a NFC reader interface
+     *
+     * @param tag: A tag using the NfcB technology.
+     */
+    NfcBReader(Tag tag) {
+        super(NfcB.get(tag));
+    }
+
+    @Override
+    public ConfigBuilder getConfig() {
+        ConfigBuilder builder = new ConfigBuilder();
+        NfcB readerB = (NfcB) mReader;
+
+        builder.add(OptionType.LB_SENSB_INFO, readerB.getProtocolInfo()[1]);
+        builder.add(OptionType.LB_NFCID0, readerB.getTag().getId());
+        builder.add(OptionType.LB_APPLICATION_DATA, readerB.getApplicationData());
+
+        if (readerB.getProtocolInfo().length > 3) {
+            byte sfgi = (byte) (readerB.getProtocolInfo()[3] >> 4);
+            builder.add(OptionType.LB_SFGI, sfgi);
+        }
+
+        builder.add(OptionType.LB_FWI_ADC_FO, readerB.getProtocolInfo()[2]);
+
+        byte bitRateCompatibility = readerB.getProtocolInfo()[0];
+        builder.add(OptionType.LB_BIT_RATE, findMaxNCIBitRate(bitRateCompatibility));
+
+        return builder;
+    }
+
+}

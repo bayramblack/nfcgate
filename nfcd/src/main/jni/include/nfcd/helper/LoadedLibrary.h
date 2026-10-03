@@ -1,5 +1,5 @@
-#ifndef NFCGATE_LOADEDLIBRARY_H
-#define NFCGATE_LOADEDLIBRARY_H
+#ifndef UNDERNET_LOADEDLIBRARY_H
+#define UNDERNET_LOADEDLIBRARY_H
 
 #include "nfcd/helper/StringUtil.h"
 #include "nfcd/helper/SymbolTable.h"
@@ -46,4 +46,4 @@ protected:
     void *mHandle = nullptr;
 };
 
-#endif //NFCGATE_LOADEDLIBRARY_H
+#endif //UNDERNET_LOADEDLIBRARY_H

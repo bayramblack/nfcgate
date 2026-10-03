@@ -17,7 +17,7 @@ file(GLOB_RECURSE NFCD_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 set(CMAKE_CXX_STANDARD 17)
 
 # compile library
-add_library(nfcgate SHARED ${NFCD_HEADERS} ${NFCD_SOURCES})
+add_library(undernet SHARED ${NFCD_HEADERS} ${NFCD_SOURCES})
 
 # platform specific flags
 if (CMAKE_SYSTEM_PROCESSOR STREQUAL aarch64)
@@ -30,10 +30,10 @@ if (CMAKE_SYSTEM_PROCESSOR STREQUAL aarch64)
 endif()
 
 # link library
-target_link_libraries(nfcgate android log xh)
+target_link_libraries(undernet android log xh)
 # include directory
-target_include_directories(nfcgate PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jni/include/)
+target_include_directories(undernet PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jni/include/)
 
 # for reproducible build
-target_link_options(nfcgate PRIVATE LINKER:--build-id=none)
-target_compile_options(nfcgate PRIVATE "-ffile-prefix-map=${CMAKE_CURRENT_SOURCE_DIR}=nfcd")
+target_link_options(undernet PRIVATE LINKER:--build-id=none)
+target_compile_options(undernet PRIVATE "-ffile-prefix-map=${CMAKE_CURRENT_SOURCE_DIR}=nfcd")

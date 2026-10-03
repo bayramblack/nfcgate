@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">NFCGate</string>
-    <string name="xposed_desc">Modules for NFCGate code hooks</string>
+    <string name="app_name">UnderNet</string>
+    <string name="xposed_desc">Modules for UnderNet code hooks</string>
     <string name="about_license">Apache License v2.0</string>
     <string name="about_text">
 <![CDATA[<p><b>DISCLAIMER</b>: This application was built for research purposes only. Do <i>NOT</i> misuse it for malicious activity.</p>
-<p><b>NFCGate</b> is licensed under <i>Apache License, v2.0</i><br /><b>Xposed</b> is licensed under <i>Apache License, v2.0</i><br />
+<p><b>UnderNet</b> | UnderNet.work.</p>
+<p><b>UnderNet</b> is licensed under <i>Apache License, v2.0</i><br /><b>Xposed</b> is licensed under <i>Apache License, v2.0</i><br />
 <b>Protobuf</b> is licensed under <i>BSD 3-Clause license</i></p>
 <p>We take no responsibility for, and will not be liable for, the application misbehaving due to technical issues beyond our control.</p>
 ]]>
@@ -43,7 +44,7 @@
     <string name="network_tls_untrusted">Network: Certificate untrusted</string>
 
     <!-- Error messages -->
-    <string name="error_NFCCAP">Your device does not support NFC or you turned it off. Please enable NFC to use NFCGate.</string>
+    <string name="error_NFCCAP">Your device does not support NFC or you turned it off. Please enable NFC to use UnderNet.</string>
     <string name="error_no_connection">No network connection available.</string>
     <string name="error_no_hostname">No hostname configured in settings.</string>
     <string name="error_nfc_disabled">NFC is disabled or unsupported.</string>
@@ -112,7 +113,7 @@
 
     <string name="menu_status">Status</string>
     <string name="menu_clone">Clone Mode</string>
-    <string name="menu_relay">Relay Mode</string>
+    <string name="menu_relay">اتصال و جلسه</string>
     <string name="menu_replay">Replay Mode</string>
     <string name="menu_capture">Capture Mode</string>
 
@@ -138,6 +139,12 @@
     <string name="settings_reset_usertrust">Reset certificate trust</string>
     <string name="settings_reset_usertrust_summary">Resets user preferences for all manually trusted/blocked TLS certificates.</string>
     <string name="settings_session">Session</string>
+    <string name="settings_session_secret">Session secret</string>
+    <string name="settings_session_secret_summary">Required by the UnderNet server. TLS is enabled automatically.</string>
+    <string name="settings_session_secret_dialog">Enter the secret configured for this session on the server.</string>
+    <string name="settings_session_secret_invalid">Use 16–256 UTF-8 bytes, or leave empty for a legacy server.</string>
+    <string name="network_auth_error">Session login failed: check the session and secret; the session may be full.</string>
+    <string name="error_no_session_secret">ابتدا از صفحهٔ اتصال، یک جلسه بسازید یا به جلسه بپیوندید.</string>
     <string name="settings_session_summary">Shared Session Number</string>
     <string name="settings_session_dialog">Enter a two-digit session number</string>
     <string name="settings_replay">Replay Settings</string>

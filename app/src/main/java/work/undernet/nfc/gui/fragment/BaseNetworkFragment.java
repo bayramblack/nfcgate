@@ -1,0 +1,186 @@
+package work.undernet.nfc.gui.fragment;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.preference.PreferenceManager;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import work.undernet.nfc.R;
+import work.undernet.nfc.db.worker.LogInserter;
+import work.undernet.nfc.gui.component.StatusBanner;
+import work.undernet.nfc.gui.dialog.CertificateTrustDialogFragment;
+import work.undernet.nfc.gui.log.SessionLogEntryFragment;
+import work.undernet.nfc.network.data.NetworkStatus;
+
+public abstract class BaseNetworkFragment extends BaseFragment implements LogInserter.SIDChangedListener {
+    // UI references
+    View mTagWaiting;
+    TextView mTagWaitingText;
+    LinearLayout mSelector;
+    StatusBanner mStatusBanner;
+
+    // database log reference
+    LogInserter mLogInserter;
+    SessionLogEntryFragment mLogFragment;
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(getNetworkLayout(), container, false);
+
+        // setup
+        mTagWaiting = v.findViewById(R.id.tag_wait);
+        mTagWaitingText = v.findViewById(R.id.tag_wait_text);
+        mSelector = v.findViewById(R.id.selector);
+        mStatusBanner = new StatusBanner(getMainActivity());
+
+        // selector setup
+        v.<LinearLayout>findViewById(R.id.select_reader).setOnClickListener(view -> onSelect(true));
+        v.<LinearLayout>findViewById(R.id.select_tag).setOnClickListener(view -> onSelect(false));
+
+        setHasOptionsMenu(true);
+        reset();
+        return v;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.toolbar_relay, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_refresh) {
+            reset();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onSIDChanged(long sessionID) {
+        // first, close old fragment if exists
+        if (mLogFragment != null) {
+            getMainActivity().getSupportFragmentManager().beginTransaction()
+                    .remove(mLogFragment)
+                    .commit();
+        }
+
+        // if new session exists, show log fragment
+        if (sessionID > -1) {
+            mLogFragment = SessionLogEntryFragment.newInstance(sessionID, SessionLogEntryFragment.Type.LIVE, null);
+            getMainActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.lay_content, mLogFragment)
+                    .commit();
+        }
+    }
+
+    protected void setSelectorVisible(boolean visible) {
+        mSelector.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
+    protected int getNetworkLayout() { return R.layout.fragment_network; }
+
+    protected void setTagWaitVisible(boolean visible, boolean reader) {
+        mTagWaitingText.setText(getString(R.string.network_waiting_for,
+                getString(reader ? R.string.network_reader : R.string.network_tag)));
+        mTagWaiting.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
+    protected void handleStatus(NetworkStatus status) {
+        if (getMainActivity() == null)
+            return;
+
+        switch (status) {
+            case ERROR_AUTH:
+                mStatusBanner.setError(getString(R.string.network_auth_error));
+                break;
+            case ERROR:
+                mStatusBanner.setError(getString(R.string.network_error));
+                break;
+            case ERROR_TLS:
+                mStatusBanner.setError(getString(R.string.network_tls_error));
+                break;
+            case ERROR_TLS_CERT_UNKNOWN: {
+                mStatusBanner.setWarning(getString(R.string.network_tls_unknown));
+                new CertificateTrustDialogFragment().show(getMainActivity().getSupportFragmentManager(), "trust");
+                break;
+            }
+            case ERROR_TLS_CERT_UNTRUSTED:
+                mStatusBanner.setError(getString(R.string.network_tls_untrusted));
+                break;
+            case CONNECTING:
+                mStatusBanner.setError(getString(R.string.network_connecting));
+                break;
+            case CONNECTED:
+                mStatusBanner.setWarning(getString(R.string.network_connected_wait));
+                break;
+            case PARTNER_CONNECT:
+                mStatusBanner.setSuccess(getString(R.string.network_connected));
+                break;
+            case PARTNER_LEFT:
+                mStatusBanner.setError(getString(R.string.network_disconnected));
+                break;
+        }
+    }
+
+    /**
+     * Returns true if any network connection appears to be online
+     */
+    private boolean isNetworkAvailable() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnected();
+    }
+
+    /**
+     * Checks if any network is available and the server connection is properly configured
+     */
+    protected boolean checkNetwork() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        if (prefs.getString("session_secret", "").isEmpty()) {
+            getMainActivity().showWarning(getString(R.string.error_no_session_secret));
+            return false;
+        }
+        // check if any network connection is available
+        if (!isNetworkAvailable()) {
+            getMainActivity().showWarning(getString(R.string.error_no_connection));
+            return false;
+        }
+
+        if (!getNfc().isNFCEnabled()) {
+            getMainActivity().showWarning(getString(R.string.error_nfc_disabled));
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Reset method called initially and when user presses reset button
+     */
+    protected void reset() {
+        getNfc().stopMode();
+        mStatusBanner.set(StatusBanner.State.IDLE, getString(R.string.network_idle));
+
+        if (mLogInserter != null)
+            mLogInserter.reset();
+    }
+
+    /**
+     * Setup method called when user selects reader or tag
+     */
+    protected abstract void onSelect(boolean reader);
+}

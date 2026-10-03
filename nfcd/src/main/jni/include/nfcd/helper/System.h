@@ -1,5 +1,5 @@
-#ifndef NFCGATE_SYSTEM_H
-#define NFCGATE_SYSTEM_H
+#ifndef UNDERNET_SYSTEM_H
+#define UNDERNET_SYSTEM_H
 
 /* NCI definitions */
 using tNFC_STATUS = uint8_t;
@@ -148,4 +148,4 @@ protected:
     static int sSdkInt;
 };
 
-#endif //NFCGATE_SYSTEM_H
+#endif //UNDERNET_SYSTEM_H

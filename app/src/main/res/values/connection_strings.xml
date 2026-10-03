@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="join_code_input" type="id" />
+    <item name="invite_qr" type="id" />
+    <string name="connection_offline">متصل نیستید</string>
+    <string name="connection_intro">برای شروع، یک جلسه بسازید یا به جلسهٔ نفر مقابل بپیوندید.</string>
+    <string name="connection_create">ساخت جلسه</string>
+    <string name="connection_create_help">یک کد دعوت می‌گیرید و برای نفر مقابل می‌فرستید.</string>
+    <string name="connection_join">پیوستن به جلسه</string>
+    <string name="connection_join_help">کد نفر مقابل را وارد کنید یا QR او را اسکن کنید.</string>
+    <string name="connection_connect">اتصال</string>
+    <string name="connection_cancel">انصراف</string>
+    <string name="connection_code_hint">کد دعوت جلسه</string>
+    <string name="connection_connecting">در حال اتصال…</string>
+    <string name="connection_creating">در حال ساخت جلسهٔ شما…</string>
+    <string name="connection_joining">در حال پیوستن به جلسه…</string>
+    <string name="connection_waiting">متصلید؛ منتظر نفر مقابل</string>
+    <string name="connection_ready">هر دو نفر متصل هستید</string>
+    <string name="connection_choose_role">حالا نقش خودتان را انتخاب کنید</string>
+    <string name="connection_active">جلسه آماده است. نقش دو نفر باید متفاوت باشد.</string>
+    <string name="connection_invite_label">کد دعوت این جلسه</string>
+    <string name="connection_invite_help">نفر مقابل «پیوستن به جلسه» را بزند و این کد را وارد کند یا QR را اسکن کند.</string>
+    <string name="connection_qr">نمایش QR</string>
+    <string name="connection_scan">اسکن QR</string>
+    <string name="connection_scan_help">QR جلسهٔ UnderNet را جلوی دوربین بگیرید</string>
+    <string name="connection_share">ارسال کد</string>
+    <string name="connection_copy">کپی کد</string>
+    <string name="connection_copied">کد دعوت کپی شد</string>
+    <string name="connection_close">بستن</string>
+    <string name="connection_leave">خروج از جلسه</string>
+    <string name="connection_bad_code">کد دعوت ۱۶ کاراکتری معتبر وارد کنید یا QR جلسه را اسکن کنید.</string>
+    <string name="connection_expired">کد درست نیست یا جلسه تمام شده است. کد جدید را از نفر مقابل بگیرید.</string>
+    <string name="connection_full">دو نفر در این جلسه هستند. یک جلسهٔ جدید بسازید.</string>
+    <string name="connection_rate_limit">درخواست‌ها زیاد بود. یک دقیقه صبر کنید و دوباره امتحان کنید.</string>
+    <string name="connection_capacity">سرور فعلاً ظرفیت جلسهٔ جدید ندارد. کمی بعد امتحان کنید.</string>
+    <string name="connection_failed">اتصال برقرار نشد. اینترنت را بررسی کنید و دوباره امتحان کنید.</string>
+    <string name="connection_partner_left">نفر مقابل از جلسه خارج شد. برای شروع دوباره، جلسه بسازید یا بپیوندید.</string>
+    <string name="connection_tag">می‌خواهم Tag باشم</string>
+    <string name="connection_tag_description">این گوشی مثل تگ، مقابل دستگاه خواننده قرار می‌گیرد.</string>
+    <string name="connection_reader">می‌خواهم Reader باشم</string>
+    <string name="connection_reader_description">تگ اصلی را به این گوشی نزدیک می‌کنید.</string>
+    <string name="connection_tag_help">گوشی را به دستگاه خواننده نزدیک کنید. نفر مقابل باید Reader باشد.</string>
+    <string name="connection_reader_help">تگ اصلی را به گوشی نزدیک کنید. نفر مقابل باید Tag باشد.</string>
+    <string name="connection_settings_help">ساخت و اتصال جلسه از صفحهٔ اتصال انجام می‌شود. ارتباط همیشه رمزگذاری شده است.</string>
+</resources>

@@ -1,11 +1,16 @@
-NFCGate
-=======
+UnderNet
+========
 
-**⚠️NFCGate is currently being falsely detected as "NGate" malware. Please see [this issue](https://github.com/nfcgate/nfcgate/issues/176) for up-to-date information.⚠️**
+UnderNet.work | a branded fork of [NFCGate](https://github.com/nfcgate/nfcgate).
 
-NFCGate is an Android application meant to capture, analyze, or modify NFC traffic. It can be used
+
+**⚠️The upstream NFCGate app is currently being falsely detected as "NGate" malware. Please see [this issue](https://github.com/nfcgate/nfcgate/issues/176) for up-to-date information.⚠️**
+
+UnderNet is an Android application meant to capture, analyze, or modify NFC traffic. It can be used
 as a researching tool to reverse engineer protocols or assess the security of protocols against
 traffic modifications.
+
+Original upstream app on F-Droid (not the UnderNet build):
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
@@ -13,7 +18,7 @@ traffic modifications.
 
 ## Notice
 
-This application was developed for security research purposes by students of
+The original NFCGate application was developed for security research purposes by students of
 the [Secure Mobile Networking Lab](https://www.seemoo.tu-darmstadt.de/)
 at [TU Darmstadt](https://www.tu-darmstadt.de/). Please do not use this application for malicious
 purposes.
@@ -65,7 +70,7 @@ description of the import and export functionality is documented in [doc/pcapng.
 
 ## Compatibility
 
-NFCGate provides an in-app status check. For further notes on compatibility see
+UnderNet provides an in-app status check. For further notes on compatibility see
 the [compatibility document](doc/Compatibility.md).
 
 ## Known Issues and Caveats
@@ -82,7 +87,7 @@ specification. Most of the phones should implement this specification when offer
 ### Confidentiality of Data Channel (relay)
 
 To ensure confidentiality and integrity, use Transport Layer Security (TLS), which can be enabled in
-NFCGate settings. You need a CA-issued or self-signed certificate. Certificates from system-trusted
+UnderNet settings. You need a CA-issued or self-signed certificate. Certificates from system-trusted
 CAs are trusted automatically. Self-signed certificates can be trusted by the user on first use (
 TOFU).
 

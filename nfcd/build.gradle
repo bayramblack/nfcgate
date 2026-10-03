@@ -16,7 +16,7 @@ android {
         targetSdkVersion 36
 
         ndk {
-            moduleName 'nfcgate-native'
+            moduleName 'undernet-native'
             //cFlags "-std=c++11" //  -fexceptions -marm -g -fPIE
             ldLibs 'log'
             abiFilters 'armeabi-v7a', 'arm64-v8a'
@@ -44,7 +44,7 @@ android {
         }
     }
 
-    namespace 'de.tu_darmstadt.seemoo.nfcgate.nfcd'
+    namespace 'work.undernet.nfc.nfcd'
 
     buildFeatures {
         buildConfig true

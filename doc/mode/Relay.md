@@ -9,7 +9,7 @@ can be relayed, along with initial tag information. Please see [clone mode](/doc
 ### Devices
 - Two Android devices that will perform the relaying (called *relay devices*). A device cannot be used as both the reader and the tag (HCE) when participating in relaying.
 - Reader and tag whose traffic should be relayed (called *relayed devices*). These devices can be Android devices.
-- Any device running the [NFCGate server](https://github.com/nfcgate/server/) application. This can also be one of the Android devices running Termux.
+- Any device running the [UnderNet server](https://github.com/nfcgate/server/) application. This can also be one of the Android devices running Termux.
 
 ### Configuration
 Relay devices:
@@ -25,20 +25,55 @@ Relayed devices:
 - No special configuration required.
 
 ## Usage
-On both relay devices:
 
-1. Switch to `Settings` in the navigation drawer.
-2. Specify `Hostname` and `Port` and `Session`.
-3. Make sure the server application is running and accessible over the network.
-4. Switch to `Relay Mode` in the navigation drawer.
-5. Click `Reader` or `Tag` depending on device: For a relay, one device in "reader mode" and one device in "tag mode" is required.
-6. When the connection has been successfully established, the app will show a green status indicator.
+UnderNet opens on the Persian connection screen (`????? ? ????`). No hostname,
+port, session number, or password needs to be entered in Settings.
 
-Relaying traffic:
-1. Place the relay device in "reader mode" to read the tag that you want to relay.
-2. Place the second relay device in "tag mode" on the relayed reader.
+1. First phone: tap **???? ????** (Create session). The server creates a temporary
+   private session and the app connects automatically.
+2. Send the invitation with **????? ??**, or display **????? QR**.
+3. Second phone: tap **?????? ?? ????** (Join session), then enter/paste the code
+   or tap **???? QR**. The app resolves the invitation over trusted TLS and connects.
+4. The screen shows whether it is waiting for the other phone or both are connected.
+5. Choose the roles: **Reader** is the phone reading the original tag; **Tag** is
+   the phone placed against the external reader. The two roles must differ.
+6. **???? ?? ????** leaves the session. Opening another section also closes its
+   relay connection. Return to the connection screen to create or join again.
 
-The NFC traffic is captured and available in `Logging` for later use.
+The fixed endpoint is `relay.undernet.work:5566`. The invitation is a random
+16-character code (hyphens are optional). The QR contains `undernet:join:<code>`;
+it does not select arbitrary servers. Camera scanning requires camera permission;
+manual entry remains available. NFC is checked only when selecting a role, so the
+connection workflow can be viewed and tested on the emulator.
+
+### Private session behavior
+
+The server requires TLS and authenticates both devices before normal relay data.
+The two-device limit and fixed authenticated session remain enforced. Anyone
+holding the invitation can request credentials and occupy an available slot;
+there is no account identity, owner approval, or server-enforced Reader/Tag role.
+
+An unused new invitation expires after 10 minutes. While at least one device is
+connected it remains valid. After the last device leaves it expires after 60
+seconds. Temporary invitations are stored in server memory and are lost on server
+restart. The existing three administrator-configured sessions remain supported
+by the protocol. Their credentials are no longer editable in the normal Settings UI.
+Online Replay uses the last automatically received session credentials.
+
+A public TLS socket with no traffic still has the existing 300-second idle timeout.
+For an inactive session that disconnects, create or join again from this screen.
+
+NFC traffic is captured in `Logging` for later use. Physical NFC/HCE/Xposed
+operation still requires compatible real phones; the emulator tests connection
+setup, authentication, invitations, QR generation, and UI state only.
+
+Tests:
+- Host regression: `python -m unittest test_session_auth test_session_lobby -v`
+  in the sibling `nfcgate-server` repository.
+- Opt-in Android tests: `LiveSessionLobbyTest` and `SessionLobbyUiTest` connect to
+  the deployed service and create temporary test sessions.
+- The original Java/Python authentication probe remains in
+  `chore/test_session_auth.py` (JDK and Python cryptography required).
 
 ## Technical Information
 See [clone mode documentation](/doc/mode/Clone.md).

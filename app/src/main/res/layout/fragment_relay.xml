@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true" android:background="#F3F7FA" android:layoutDirection="rtl">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="20dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/app_name" android:textSize="14sp" android:textColor="#52677A"
+        android:layout_marginBottom="12dp" />
+    <TextView android:id="@+id/connection_status" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="@string/connection_offline"
+        android:textSize="25sp" android:textStyle="bold" android:textColor="#10283B" />
+    <TextView android:id="@+id/connection_hint" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="@string/connection_intro"
+        android:textSize="15sp" android:textColor="#455B6B" android:layout_marginTop="8dp"
+        android:layout_marginBottom="18dp" />
+    <ProgressBar android:id="@+id/connection_progress" android:layout_width="48dp"
+        android:layout_height="48dp" android:layout_gravity="center" android:visibility="gone" />
+    <LinearLayout android:id="@+id/connection_welcome" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="vertical">
+        <Button android:id="@+id/session_create" android:layout_width="match_parent"
+            android:layout_height="60dp" android:text="@string/connection_create"
+            android:textSize="17sp" android:textColor="#FFFFFF" android:backgroundTint="#10283B" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/connection_create_help" android:textColor="#455B6B"
+            android:padding="8dp" android:layout_marginBottom="12dp" />
+        <Button android:id="@+id/session_join" android:layout_width="match_parent"
+            android:layout_height="60dp" android:text="@string/connection_join"
+            android:textSize="17sp" android:textColor="#10283B" android:backgroundTint="#D8EEE9" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/connection_join_help" android:textColor="#455B6B" android:padding="8dp" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/connection_room" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/connection_invite_label" android:textColor="#455B6B" />
+        <TextView android:id="@+id/connection_code" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textSize="20sp" android:textStyle="bold"
+            android:gravity="center" android:textColor="#10283B" android:textIsSelectable="true"
+            android:textDirection="ltr" android:padding="8dp" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:id="@+id/session_qr" android:layout_width="0dp"
+                android:layout_weight="1" android:layout_height="52dp" android:text="@string/connection_qr" />
+            <Button android:id="@+id/session_share" android:layout_width="0dp"
+                android:layout_weight="1" android:layout_height="52dp" android:text="@string/connection_share" />
+        </LinearLayout>
+        <Button android:id="@+id/session_leave" android:layout_width="match_parent"
+            android:layout_height="48dp" android:text="@string/connection_leave"
+            style="@style/Widget.AppCompat.Button.Borderless" />
+    </LinearLayout>
+    <RelativeLayout android:id="@+id/relay_workspace" android:layout_width="match_parent"
+        android:layout_height="320dp" android:visibility="gone">
+        <RelativeLayout android:id="@+id/lay_content" android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include layout="@layout/tag_wait" />
+            <LinearLayout android:id="@+id/selector" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView android:id="@+id/txt_action" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="@string/connection_choose_role"
+                    android:textSize="17sp" android:textStyle="bold" android:textColor="#10283B"
+                    android:gravity="center" android:layout_marginBottom="12dp" />
+                <LinearLayout android:id="@+id/select_tag" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:padding="12dp" android:background="?android:attr/selectableItemBackground"
+                    android:contentDescription="@string/connection_tag">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="@string/connection_tag" android:textStyle="bold" android:textSize="18sp"
+                        android:textColor="#10283B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="@string/connection_tag_description" android:textColor="#455B6B" />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/select_reader" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:contentDescription="@string/connection_reader">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="@string/connection_reader" android:textStyle="bold" android:textSize="18sp"
+                        android:textColor="#10283B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="@string/connection_reader_description" android:textColor="#455B6B" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>
+</ScrollView>

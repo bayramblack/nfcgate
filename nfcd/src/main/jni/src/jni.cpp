@@ -108,15 +108,15 @@ void applyConfig(Config &config) {
 }
 
 extern "C" {
-    JNIEXPORT jint JNICALL Java_de_tu_1darmstadt_seemoo_nfcgate_xposed_Native_installHooks(JNIEnv *, jobject) {
+    JNIEXPORT jint JNICALL Java_work_undernet_nfc_xposed_Native_installHooks(JNIEnv *, jobject) {
         return static_cast<int>(globals.installHooks());
     }
 
-    JNIEXPORT jboolean JNICALL Java_de_tu_1darmstadt_seemoo_nfcgate_xposed_Native_isPatchEnabled(JNIEnv *, jobject) {
+    JNIEXPORT jboolean JNICALL Java_work_undernet_nfc_xposed_Native_isPatchEnabled(JNIEnv *, jobject) {
         return globals.patchEnabled;
     }
 
-    JNIEXPORT jbyteArray JNICALL Java_de_tu_1darmstadt_seemoo_nfcgate_xposed_Native_getResBytes(JNIEnv *env, jobject) {
+    JNIEXPORT jbyteArray JNICALL Java_work_undernet_nfc_xposed_Native_getResBytes(JNIEnv *env, jobject) {
         jbyteArray result = nullptr;
         if (!globals.resBytes.empty()) {
             result = env->NewByteArray(globals.resBytes.size());
@@ -127,7 +127,7 @@ extern "C" {
         return result;
     }
 
-    JNIEXPORT void JNICALL Java_de_tu_1darmstadt_seemoo_nfcgate_xposed_Native_setConfig(JNIEnv *env, jobject, jbyteArray config) {
+    JNIEXPORT void JNICALL Java_work_undernet_nfc_xposed_Native_setConfig(JNIEnv *env, jobject, jbyteArray config) {
         // early return if hook not fully installed
         if (globals.hookStatus() != HookResult::SUCCESS) {
             LOGE("[nfcd] Failed to set config because native hook is not fully installed");
@@ -161,7 +161,7 @@ extern "C" {
         nfaEnableDiscovery();
     }
 
-    JNIEXPORT void JNICALL Java_de_tu_1darmstadt_seemoo_nfcgate_xposed_Native_resetConfig(JNIEnv *, jobject) {
+    JNIEXPORT void JNICALL Java_work_undernet_nfc_xposed_Native_resetConfig(JNIEnv *, jobject) {
         // early return if hook not fully installed
         if (globals.hookStatus() != HookResult::SUCCESS) {
             LOGE("[nfcd] Failed to set config because native hook is not fully installed");
