@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wizard_invite">Invite partner</string>
+    <string name="wizard_change_session">Change session</string>
+    <string name="wizard_step_session">1 of 3 · Session</string>
+    <string name="wizard_step_role">2 of 3 · Phone role</string>
+    <string name="wizard_step_nfc">3 of 3 · NFC</string>
+    <string name="wizard_start">Start NFC</string>
+    <string name="wizard_change_role">Change phone role</string>
+    <string name="wizard_nfc_ready">Ready to start</string>
+    <string name="wizard_nfc_running">NFC is active</string>
+    <string name="wizard_nfc_received">Data exchanged</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <item type="id" name="session_name_input" />
+    <item type="id" name="saved_session_name" />
+    <item type="id" name="saved_session_enter" />
+    <item type="id" name="saved_session_options" />
+    <string name="sessions_title">جلساتي</string>
+    <string name="sessions_help">يمكنك حفظ عدة جلسات بأسماء مختلفة. جلسة واحدة فقط نشطة في كل مرة.</string>
+    <string name="sessions_default">جلسة</string>
+    <string name="sessions_new_name">اختر اسماً للجلسة</string>
+    <string name="sessions_name_hint">مثال: الجلسة 1 أو اختبار اليوم</string>
+    <string name="sessions_invalid_name">أدخل اسماً من حرف واحد إلى 60 حرفاً.</string>
+    <string name="sessions_enter">دخول</string>
+    <string name="sessions_active">نشطة</string>
+    <string name="sessions_options">خيارات</string>
+    <string name="sessions_rename">تغيير الاسم</string>
+    <string name="sessions_forget">إزالة من قائمتي</string>
+    <string name="sessions_delete">حذف الجلسة للجميع</string>
+    <string name="sessions_delete_confirm">سيؤدي ذلك إلى حذف الجلسة للجميع وإبطال رمز الدعوة.</string>
+    <string name="sessions_forget_confirm">ستُزال الجلسة من هذا الهاتف فقط. ستحتاج إلى رمز الدعوة للانضمام مجدداً.</string>
+    <string name="sessions_leave_help">غادرت الجلسة. للعودة، اخترها من «جلساتي».</string>
+    <string name="sessions_reconnecting">جارٍ إعادة الاتصال… تم حفظ عضويتك في الجلسة.</string>
+    <string name="sessions_unavailable">يتعذر الاتصال الآن. ربما امتلأت الجلسة أو حُذفت. ما زالت بيانات عضويتك محفوظة.</string>
+    <string name="sessions_partner_left">غادر الطرف الآخر. ما زلت في الجلسة وبانتظاره.</string>
+    <string name="sessions_retry">إعادة الاتصال</string>
+    <string name="sessions_notification_channel">اتصال جلسة UnderNet</string>
+    <string name="sessions_forbidden">منشئ الجلسة وحده يستطيع حذفها للجميع.</string>
+    <string name="sessions_actions">إنشاء جلسة أخرى أو الانضمام إليها</string>
+    <string name="sessions_leave">مغادرة الجلسة</string>
+</resources>

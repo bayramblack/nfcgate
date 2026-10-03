@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wizard_invite">邀请另一位用户</string>
+    <string name="wizard_change_session">切换会话</string>
+    <string name="wizard_step_session">第 1 步，共 3 步 · 会话</string>
+    <string name="wizard_step_role">第 2 步，共 3 步 · 手机角色</string>
+    <string name="wizard_step_nfc">第 3 步，共 3 步 · NFC</string>
+    <string name="wizard_start">启动 NFC</string>
+    <string name="wizard_change_role">更改手机角色</string>
+    <string name="wizard_nfc_ready">准备就绪</string>
+    <string name="wizard_nfc_running">NFC 已启动</string>
+    <string name="wizard_nfc_received">已交换数据</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <item name="join_code_input" type="id" />
+    <item name="invite_qr" type="id" />
+    <string name="connection_offline">غير متصل</string>
+    <string name="connection_intro">للبدء، أنشئ جلسة أو انضم إلى جلسة الطرف الآخر.</string>
+    <string name="connection_create">إنشاء جلسة</string>
+    <string name="connection_create_help">احصل على رمز دعوة وأرسله إلى الطرف الآخر.</string>
+    <string name="connection_join">الانضمام إلى جلسة</string>
+    <string name="connection_join_help">أدخل رمز الطرف الآخر أو امسح رمز QR الخاص به.</string>
+    <string name="connection_connect">اتصال</string>
+    <string name="connection_cancel">إلغاء</string>
+    <string name="connection_code_hint">رمز دعوة الجلسة</string>
+    <string name="connection_connecting">جارٍ الاتصال…</string>
+    <string name="connection_creating">جارٍ إنشاء جلستك…</string>
+    <string name="connection_joining">جارٍ الانضمام إلى الجلسة…</string>
+    <string name="connection_waiting">متصل؛ في انتظار الطرف الآخر</string>
+    <string name="connection_ready">كلاكما متصل</string>
+    <string name="connection_choose_role">هل يجب أن يكون هذا الهاتف بجانب البطاقة أم جهاز نقاط البيع؟</string>
+    <string name="connection_active">الجلسة جاهزة. ضع هاتفاً بجانب البطاقة والآخر بجانب جهاز نقاط البيع.</string>
+    <string name="connection_invite_label">رمز دعوة هذه الجلسة</string>
+    <string name="connection_invite_help">على الطرف الآخر اختيار «الانضمام إلى جلسة» ثم إدخال الرمز أو مسح QR.</string>
+    <string name="connection_qr">عرض QR</string>
+    <string name="connection_scan">مسح QR</string>
+    <string name="connection_scan_help">وجّه الكاميرا إلى رمز QR الخاص بجلسة UnderNet.</string>
+    <string name="connection_share">مشاركة الرمز</string>
+    <string name="connection_copy">نسخ الرمز</string>
+    <string name="connection_copied">تم نسخ رمز الدعوة</string>
+    <string name="connection_close">إغلاق</string>
+    <string name="connection_leave">مغادرة الجلسة</string>
+    <string name="connection_bad_code">أدخل رمز دعوة صالحاً من 16 خانة أو امسح رمز QR للجلسة.</string>
+    <string name="connection_expired">الرمز غير صالح أو انتهت الجلسة. اطلب رمزاً جديداً.</string>
+    <string name="connection_full">يوجد شخصان في هذه الجلسة. أنشئ جلسة جديدة.</string>
+    <string name="connection_rate_limit">عدد الطلبات كبير. انتظر دقيقة ثم حاول مجدداً.</string>
+    <string name="connection_capacity">يتعذر على الخادم إنشاء جلسة الآن. حاول بعد قليل.</string>
+    <string name="connection_failed">تعذّر الاتصال. تحقق من الإنترنت ثم حاول مجدداً.</string>
+    <string name="connection_partner_left">غادر الطرف الآخر. للبدء من جديد، أنشئ جلسة أو انضم إليها.</string>
+    <string name="connection_tag">الهاتف بجانب جهاز نقاط البيع</string>
+    <string name="connection_tag_description">يحاكي هذا الهاتف بطاقة؛ قرّبه من قارئ البطاقات اللاتلامسي في جهاز نقاط البيع.</string>
+    <string name="connection_reader">الهاتف بجانب البطاقة</string>
+    <string name="connection_reader_description">ضع البطاقة الأصلية على ظهر هذا الهاتف ليقرأها.</string>
+    <string name="connection_tag_help">يحاكي هذا الهاتف بطاقة. قرّبه من قارئ البطاقات اللاتلامسي في جهاز نقاط البيع. على الطرف الآخر اختيار «الهاتف بجانب البطاقة».</string>
+    <string name="connection_reader_help">ضع البطاقة الأصلية على ظهر هذا الهاتف. على الطرف الآخر اختيار «الهاتف بجانب جهاز نقاط البيع».</string>
+    <string name="connection_settings_help">أنشئ جلسة أو انضم إليها من صفحة جهاز نقاط البيع. الاتصال مشفّر دائماً.</string>
+</resources>

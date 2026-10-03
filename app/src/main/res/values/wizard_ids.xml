@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <item type="id" name="connection_code" />
+    <item type="id" name="session_leave" />
+    <item type="id" name="session_share" />
+</resources>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <item type="id" name="session_name_input" />
+    <item type="id" name="saved_session_name" />
+    <item type="id" name="saved_session_enter" />
+    <item type="id" name="saved_session_options" />
+    <string name="sessions_title">我的会话</string>
+    <string name="sessions_help">可以保存多个自定义名称的会话，但同一时间只能激活一个。</string>
+    <string name="sessions_default">会话</string>
+    <string name="sessions_new_name">设置会话名称</string>
+    <string name="sessions_name_hint">例如：会话 1 或今天的测试</string>
+    <string name="sessions_invalid_name">请输入 1 到 60 个字符的名称。</string>
+    <string name="sessions_enter">进入</string>
+    <string name="sessions_active">当前会话</string>
+    <string name="sessions_options">选项</string>
+    <string name="sessions_rename">重命名</string>
+    <string name="sessions_forget">从我的列表移除</string>
+    <string name="sessions_delete">为所有人删除会话</string>
+    <string name="sessions_delete_confirm">删除后，所有人都无法继续使用此会话，邀请码也会失效。</string>
+    <string name="sessions_forget_confirm">此操作只从这部手机移除会话。重新加入时需要邀请码。</string>
+    <string name="sessions_leave_help">你已退出会话。可以从「我的会话」重新加入。</string>
+    <string name="sessions_reconnecting">正在重新连接…已保留你的会话信息。</string>
+    <string name="sessions_unavailable">暂时无法连接。会话可能已满或已删除。此手机仍保留会话信息。</string>
+    <string name="sessions_partner_left">另一位参与者已离开。你仍在会话中，正在等待对方。</string>
+    <string name="sessions_retry">重新连接</string>
+    <string name="sessions_notification_channel">UnderNet 会话连接</string>
+    <string name="sessions_forbidden">只有创建者可以为所有人删除会话。</string>
+    <string name="sessions_actions">创建或加入另一个会话</string>
+    <string name="sessions_leave">退出会话</string>
+</resources>

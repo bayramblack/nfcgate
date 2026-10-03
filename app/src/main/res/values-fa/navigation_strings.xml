@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="nav_pos_short">پوز</string>
+    <string name="nav_logs_short">گزارش‌ها</string>
+    <string name="nav_status_short">دستگاه</string>
+    <string name="nav_tools_short">ابزارها</string>
+</resources>

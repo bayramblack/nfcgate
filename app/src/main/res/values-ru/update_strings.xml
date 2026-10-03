@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="menu_update">Проверить обновления</string>
+    <string name="update_checking">Проверка обновлений…</string>
+    <string name="update_current">Установлена последняя версия.</string>
+    <string name="update_available">Доступно обновление</string>
+    <string name="update_description">Доступна версия UnderNet %1$s. Скачать? Android запросит подтверждение установки.</string>
+    <string name="update_download">Скачать обновление</string>
+    <string name="update_later">Позже</string>
+    <string name="update_downloading">Загрузка обновления…</string>
+    <string name="update_wait">Не закрывайте экран, пока обновление загружается и проверяется.</string>
+    <string name="update_failed">Не удалось проверить или скачать обновление. Повторите попытку.</string>
+    <string name="update_permission">Разрешите UnderNet устанавливать приложения в настройках Android, затем вернитесь сюда.</string>
+    <string name="update_incompatible">Для обновления нужна более новая версия Android.</string>
+</resources>

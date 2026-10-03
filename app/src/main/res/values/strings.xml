@@ -113,7 +113,7 @@
 
     <string name="menu_status">Status</string>
     <string name="menu_clone">Clone Mode</string>
-    <string name="menu_relay">اتصال و جلسه</string>
+    <string name="menu_relay">POS Device</string>
     <string name="menu_replay">Replay Mode</string>
     <string name="menu_capture">Capture Mode</string>
 
@@ -144,7 +144,7 @@
     <string name="settings_session_secret_dialog">Enter the secret configured for this session on the server.</string>
     <string name="settings_session_secret_invalid">Use 16–256 UTF-8 bytes, or leave empty for a legacy server.</string>
     <string name="network_auth_error">Session login failed: check the session and secret; the session may be full.</string>
-    <string name="error_no_session_secret">ابتدا از صفحهٔ اتصال، یک جلسه بسازید یا به جلسه بپیوندید.</string>
+    <string name="error_no_session_secret">Create or join a session on the POS Device page first.</string>
     <string name="settings_session_summary">Shared Session Number</string>
     <string name="settings_session_dialog">Enter a two-digit session number</string>
     <string name="settings_replay">Replay Settings</string>

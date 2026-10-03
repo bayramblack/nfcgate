@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/nav_relay" android:title="@string/nav_pos_short" android:icon="@drawable/ic_pos_terminal" />
+    <item android:id="@id/nav_logging" android:title="@string/nav_logs_short" android:icon="@drawable/ic_log_black_24dp" />
+    <item android:id="@id/nav_status" android:title="@string/nav_status_short" android:icon="@drawable/ic_perm_device_information_black_24dp" />
+    <item android:id="@+id/nav_more" android:title="@string/nav_tools_short" android:icon="@drawable/ic_settings_black_24dp" />
+</menu>

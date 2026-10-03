@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="nav_pos_short">نقاط البيع</string>
+    <string name="nav_logs_short">السجلات</string>
+    <string name="nav_status_short">الجهاز</string>
+    <string name="nav_tools_short">المزيد</string>
+</resources>

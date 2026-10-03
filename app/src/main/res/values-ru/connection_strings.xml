@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <item name="join_code_input" type="id" />
+    <item name="invite_qr" type="id" />
+    <string name="connection_offline">Не подключено</string>
+    <string name="connection_intro">Чтобы начать, создайте сеанс или подключитесь к сеансу второго участника.</string>
+    <string name="connection_create">Создать сеанс</string>
+    <string name="connection_create_help">Вы получите код приглашения и отправите его второму участнику.</string>
+    <string name="connection_join">Подключиться к сеансу</string>
+    <string name="connection_join_help">Введите код второго участника или отсканируйте QR-код.</string>
+    <string name="connection_connect">Подключиться</string>
+    <string name="connection_cancel">Отмена</string>
+    <string name="connection_code_hint">Код приглашения</string>
+    <string name="connection_connecting">Подключение…</string>
+    <string name="connection_creating">Создание сеанса…</string>
+    <string name="connection_joining">Подключение к сеансу…</string>
+    <string name="connection_waiting">Подключено; ожидание второго участника</string>
+    <string name="connection_ready">Оба участника подключены</string>
+    <string name="connection_choose_role">Этот телефон должен быть рядом с картой или с терминалом?</string>
+    <string name="connection_active">Сеанс готов. Один телефон расположите у карты, другой — у POS-терминала.</string>
+    <string name="connection_invite_label">Код приглашения в этот сеанс</string>
+    <string name="connection_invite_help">Второй участник должен выбрать «Подключиться к сеансу» и ввести код или отсканировать QR.</string>
+    <string name="connection_qr">Показать QR-код</string>
+    <string name="connection_scan">Сканировать QR</string>
+    <string name="connection_scan_help">Наведите камеру на QR-код сеанса UnderNet.</string>
+    <string name="connection_share">Отправить код</string>
+    <string name="connection_copy">Скопировать код</string>
+    <string name="connection_copied">Код приглашения скопирован</string>
+    <string name="connection_close">Закрыть</string>
+    <string name="connection_leave">Выйти из сеанса</string>
+    <string name="connection_bad_code">Введите действительный 16-символьный код или отсканируйте QR-код сеанса.</string>
+    <string name="connection_expired">Код неверен или сеанс завершён. Попросите новый код.</string>
+    <string name="connection_full">В сеансе уже два участника. Создайте новый сеанс.</string>
+    <string name="connection_rate_limit">Слишком много запросов. Подождите минуту и повторите попытку.</string>
+    <string name="connection_capacity">Сервер сейчас не может создать сеанс. Попробуйте позже.</string>
+    <string name="connection_failed">Не удалось подключиться. Проверьте интернет и повторите попытку.</string>
+    <string name="connection_partner_left">Второй участник вышел. Для продолжения создайте сеанс или подключитесь к нему.</string>
+    <string name="connection_tag">Телефон рядом с POS-терминалом</string>
+    <string name="connection_tag_description">Этот телефон изображает карту. Поднесите его к бесконтактному считывателю терминала.</string>
+    <string name="connection_reader">Телефон рядом с картой</string>
+    <string name="connection_reader_description">Поднесите настоящую карту к задней панели этого телефона. Он считывает карту.</string>
+    <string name="connection_tag_help">Этот телефон изображает карту. Держите его возле бесконтактного считывателя POS-терминала. Второй участник выбирает «Телефон рядом с картой».</string>
+    <string name="connection_reader_help">Поднесите настоящую карту к задней панели этого телефона. Второй участник выбирает «Телефон рядом с POS-терминалом».</string>
+    <string name="connection_settings_help">Создавайте сеансы и подключайтесь к ним на странице POS-терминала. Соединение всегда зашифровано.</string>
+</resources>

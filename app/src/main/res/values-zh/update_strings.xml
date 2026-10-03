@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="menu_update">检查更新</string>
+    <string name="update_checking">正在检查更新…</string>
+    <string name="update_current">已是最新版本。</string>
+    <string name="update_available">有可用更新</string>
+    <string name="update_description">UnderNet %1$s 已发布。现在下载吗？Android 将要求您确认安装。</string>
+    <string name="update_download">下载更新</string>
+    <string name="update_later">稍后</string>
+    <string name="update_downloading">正在下载更新…</string>
+    <string name="update_wait">下载并验证更新时，请保持此页面打开。</string>
+    <string name="update_failed">无法检查或下载更新。请重试。</string>
+    <string name="update_permission">请在接下来的 Android 设置页面允许 UnderNet 安装应用，然后返回此处。</string>
+    <string name="update_incompatible">此更新需要更高版本的 Android。</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <item type="id" name="session_name_input" />
+    <item type="id" name="saved_session_name" />
+    <item type="id" name="saved_session_enter" />
+    <item type="id" name="saved_session_options" />
+    <string name="sessions_title">جلسه‌های من</string>
+    <string name="sessions_help">چند جلسه با نام دلخواه نگه دارید. هر بار یک جلسه فعال است.</string>
+    <string name="sessions_default">جلسه</string>
+    <string name="sessions_new_name">اسم جلسه را انتخاب کنید</string>
+    <string name="sessions_name_hint">مثلاً جلسهٔ ۱ یا تست امروز</string>
+    <string name="sessions_invalid_name">یک اسم از ۱ تا ۶۰ کاراکتر وارد کنید.</string>
+    <string name="sessions_enter">ورود</string>
+    <string name="sessions_active">فعال</string>
+    <string name="sessions_options">گزینه‌ها</string>
+    <string name="sessions_rename">تغییر نام</string>
+    <string name="sessions_forget">حذف از فهرست من</string>
+    <string name="sessions_delete">حذف کامل جلسه</string>
+    <string name="sessions_delete_confirm">این جلسه برای همه حذف می‌شود و کد دعوت آن دیگر کار نمی‌کند.</string>
+    <string name="sessions_forget_confirm">جلسه از فهرست این گوشی حذف می‌شود. برای ورود دوباره به کد دعوت نیاز دارید.</string>
+    <string name="sessions_leave_help">از جلسه خارج شدید. برای ورود دوباره، آن را از «جلسه‌های من» انتخاب کنید.</string>
+    <string name="sessions_reconnecting">در حال برقراری دوبارهٔ اتصال… عضویت شما حفظ شده است.</string>
+    <string name="sessions_unavailable">فعلاً نمی‌توانید وصل شوید؛ جلسه ممکن است پر یا حذف شده باشد. عضویت روی این گوشی حفظ شده است.</string>
+    <string name="sessions_partner_left">نفر مقابل خارج شد؛ شما هنوز در جلسه هستید و منتظر او می‌مانید.</string>
+    <string name="sessions_retry">اتصال دوباره</string>
+    <string name="sessions_notification_channel">اتصال جلسهٔ UnderNet</string>
+    <string name="sessions_forbidden">فقط سازندهٔ جلسه می‌تواند آن را برای همه حذف کند.</string>
+    <string name="sessions_actions">ساخت یا ورود به جلسهٔ دیگری</string>
+    <string name="sessions_leave">خروج از جلسه</string>
+</resources>

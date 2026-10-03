@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Keep the Settings route available while its drawer item is commented out. -->
+    <item name="nav_settings" type="id" />
+</resources>

@@ -20,10 +20,17 @@ public final class SessionLobbyClient {
         public final int number;
         public final String secret;
         public final String code;
+        public final String name;
+        public final String owner;
         Session(int number, String secret, String code) {
+            this(number, secret, code, "", "");
+        }
+        public Session(int number, String secret, String code, String name, String owner) {
             this.number = number;
             this.secret = secret;
             this.code = code;
+            this.name = name;
+            this.owner = owner;
         }
     }
 
@@ -44,14 +51,34 @@ public final class SessionLobbyClient {
         return code;
     }
 
-    public static Session create() throws IOException { return request(null); }
-    public static Session join(String code) throws IOException { return request(normalizeCode(code)); }
+    public static Session create() throws IOException { return create(""); }
+    public static Session create(String name) throws IOException {
+        try { return session(request(new JSONObject().put("action", "create").put("name", name))); }
+        catch (JSONException e) { throw new IOException("Invalid session request"); }
+    }
+    public static Session join(String code) throws IOException {
+        try { return session(request(new JSONObject().put("action", "join").put("code", normalizeCode(code)))); }
+        catch (JSONException e) { throw new IOException("Invalid session request"); }
+    }
+    public static void delete(Session room) throws IOException {
+        try { request(new JSONObject().put("action", "delete").put("code", room.code).put("owner", room.owner)); }
+        catch (JSONException e) { throw new IOException("Invalid session request"); }
+    }
 
-    private static Session request(String code) throws IOException {
+    private static Session session(JSONObject response) throws IOException {
+        try {
+            int number = response.getInt("session");
+            String secret = response.getString("secret"), invite = response.getString("code");
+            if (number < 1 || number > 255 || secret.length() < 16 || secret.length() > 256)
+                throw new IOException("Invalid session response");
+            normalizeCode(invite);
+            return new Session(number, secret, invite, response.optString("name", ""), response.optString("owner", ""));
+        } catch (JSONException | IllegalArgumentException e) { throw new IOException("Invalid session response"); }
+    }
+
+    private static JSONObject request(JSONObject message) throws IOException {
         TLSTransport transport = new TLSTransport(NetworkManager.SERVER_HOST, NetworkManager.SERVER_PORT);
         try {
-            JSONObject message = new JSONObject().put("action", code == null ? "create" : "join");
-            if (code != null) message.put("code", code);
             byte[] payload = (PREFIX + message).getBytes(StandardCharsets.UTF_8);
             transport.connect();
             transport.socket().setSoTimeout(10000);
@@ -72,13 +99,7 @@ public final class SessionLobbyClient {
             JSONObject response = new JSONObject(reply.substring(PREFIX.length()));
             if (!"ok".equals(response.optString("status")))
                 throw new LobbyException(response.optString("error", "invalid"));
-            int number = response.getInt("session");
-            String secret = response.getString("secret");
-            String invite = response.getString("code");
-            if (number < 1 || number > 255 || secret.length() < 16 || secret.length() > 256)
-                throw new IOException("Invalid session response");
-            normalizeCode(invite);
-            return new Session(number, secret, invite);
+            return response;
         } catch (JSONException | IllegalArgumentException e) {
             throw new IOException("Invalid session response");
         } finally {

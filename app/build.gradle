@@ -33,8 +33,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 36
         multiDexEnabled true
-        versionCode 17
-        versionName '2.6.1'
+        versionCode 23
+        versionName '2.8.1'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // add Git information to BuildConfig if .git directory present
@@ -53,8 +53,8 @@ android {
     android.applicationVariants.configureEach { variant ->
         if (variant.name == "debug")
             variant.outputs.each { output ->
-                output.versionCodeOverride = defaultConfig.versionCode + 1
-                output.versionNameOverride = '2.6.2-dev'
+                output.versionCodeOverride = defaultConfig.versionCode
+                output.versionNameOverride = defaultConfig.versionName
             }
     }
 
@@ -80,6 +80,14 @@ android {
     preBuild.dependsOn('downloadDeviceJson')
 
     buildTypes {
+        // Keep the certificate of existing direct installs so upgrades retain app data.
+        // This variant disables debugging; preserve the signing keystore for future releases.
+        distribution {
+            initWith release
+            debuggable false
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release']
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

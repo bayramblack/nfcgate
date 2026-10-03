@@ -1,0 +1,5 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:color="#2C4955" />
+    <item android:state_focused="true" android:color="#294555" />
+    <item android:color="@color/cyber_raised" />
+</selector>

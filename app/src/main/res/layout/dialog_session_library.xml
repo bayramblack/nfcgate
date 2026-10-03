@@ -1,0 +1,10 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:focusableInTouchMode="true" android:descendantFocusability="beforeDescendants">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="20dp" android:orientation="vertical">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/sessions_help" android:textColor="@color/cyber_muted" android:layout_marginBottom="16dp" />
+        <LinearLayout android:id="@+id/saved_session_list" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+        <Button android:id="@+id/library_create" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="52dp" android:text="@string/connection_create" />
+        <Button android:id="@+id/library_join" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="52dp" android:text="@string/connection_join" />
+    </LinearLayout>
+</ScrollView>

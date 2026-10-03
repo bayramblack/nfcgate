@@ -1,0 +1,25 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true"
+    android:focusableInTouchMode="true" android:descendantFocusability="beforeDescendants">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="20dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="center" android:padding="24dp"
+            android:background="@drawable/pos_header">
+            <ImageView android:layout_width="72dp" android:layout_height="72dp"
+                android:src="@mipmap/ic_launcher" android:importantForAccessibility="no" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/app_name" android:textSize="26sp" android:textStyle="bold"
+                android:textColor="@color/cyber_text" android:layout_marginTop="12dp" />
+            <TextView android:id="@+id/about_version_label" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="14sp" android:textColor="@color/cyber_cyan" android:layout_marginTop="6dp" />
+        </LinearLayout>
+        <TextView android:id="@+id/about_description" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="@color/cyber_muted" android:textSize="15sp" android:lineSpacingExtra="4dp"
+            android:padding="20dp" android:layout_marginTop="16dp" android:background="@drawable/pos_card" />
+        <Button android:id="@+id/about_website_button" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="52dp" android:text="@string/about_website" android:layout_marginTop="12dp" />
+        <Button android:id="@+id/about_license_button" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="52dp" android:text="@string/about_license" />
+    </LinearLayout>
+</ScrollView>

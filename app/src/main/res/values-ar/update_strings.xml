@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="menu_update">التحقق من التحديثات</string>
+    <string name="update_checking">جارٍ التحقق من التحديثات…</string>
+    <string name="update_current">لديك أحدث إصدار.</string>
+    <string name="update_available">يتوفر تحديث</string>
+    <string name="update_description">يتوفر UnderNet %1$s. هل تريد تنزيله؟ سيطلب Android تأكيد التثبيت.</string>
+    <string name="update_download">تنزيل التحديث</string>
+    <string name="update_later">لاحقاً</string>
+    <string name="update_downloading">جارٍ تنزيل التحديث…</string>
+    <string name="update_wait">أبقِ هذه الشاشة مفتوحة حتى يكتمل تنزيل التحديث والتحقق منه.</string>
+    <string name="update_failed">تعذّر التحقق من التحديث أو تنزيله. حاول مجدداً.</string>
+    <string name="update_permission">اسمح لـ UnderNet بتثبيت التطبيقات في إعدادات Android، ثم عُد إلى هنا.</string>
+    <string name="update_incompatible">يتطلب هذا التحديث إصداراً أحدث من Android.</string>
+</resources>

@@ -27,30 +27,15 @@ public class AboutFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // custom elements
-        Element versionElement = new Element()
-                .setIconDrawable(R.drawable.ic_about_black_24dp)
-                .setTitle(getString(R.string.about_version, getVersionNameGit()));
-        Element licenseElement = new Element()
-                .setIconDrawable(R.drawable.ic_copyright_black_24dp)
-                .setIntent(new Intent()
-                    .setAction(Intent.ACTION_VIEW)
-                    .addCategory(Intent.CATEGORY_BROWSABLE)
-                    .setData(Uri.parse("https://www.apache.org/licenses/LICENSE-2.0")))
-                .setTitle(getString(R.string.about_license));
-
-
-        // create actual page
-        View aboutPage = new AboutPage(getContext())
-                .setImage(R.mipmap.ic_launcher)
-                .addWebsite("https://UnderNet.work")
-                .addItem(licenseElement)
-                .addItem(versionElement)
-                .create();
-
-        // workaround to set HTML description
-        TextView description = aboutPage.findViewById(R.id.description);
+        View aboutPage = inflater.inflate(R.layout.fragment_about, container, false);
+        TextView description = aboutPage.findViewById(R.id.about_description);
         description.setText(Html.fromHtml(getString(R.string.about_text)));
+        aboutPage.<TextView>findViewById(R.id.about_version_label)
+                .setText(getString(R.string.about_version, BuildConfig.VERSION_NAME));
+        aboutPage.findViewById(R.id.about_website_button).setOnClickListener(v ->
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://UnderNet.work"))));
+        aboutPage.findViewById(R.id.about_license_button).setOnClickListener(v ->
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.apache.org/licenses/LICENSE-2.0"))));
         return aboutPage;
     }
 }

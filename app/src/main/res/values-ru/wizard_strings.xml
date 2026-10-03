@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wizard_invite">Пригласить участника</string>
+    <string name="wizard_change_session">Сменить сеанс</string>
+    <string name="wizard_step_session">1 из 3 · Сеанс</string>
+    <string name="wizard_step_role">2 из 3 · Роль телефона</string>
+    <string name="wizard_step_nfc">3 из 3 · NFC</string>
+    <string name="wizard_start">Запустить NFC</string>
+    <string name="wizard_change_role">Изменить роль телефона</string>
+    <string name="wizard_nfc_ready">Готово к запуску</string>
+    <string name="wizard_nfc_running">NFC активен</string>
+    <string name="wizard_nfc_received">Данные переданы</string>
+</resources>

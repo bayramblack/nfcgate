@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="nav_pos_short">POS</string>
+    <string name="nav_logs_short">Logs</string>
+    <string name="nav_status_short">Device</string>
+    <string name="nav_tools_short">Tools</string>
+</resources>

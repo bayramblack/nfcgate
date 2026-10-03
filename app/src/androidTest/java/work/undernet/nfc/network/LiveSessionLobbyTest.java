@@ -13,12 +13,14 @@ import work.undernet.nfc.network.data.NetworkStatus;
 /** Opt-in test against the deployed TLS invitation service; no static secrets needed. */
 public class LiveSessionLobbyTest {
     private final List<ServerConnection> connections = new ArrayList<>();
+    private final List<SessionLobbyClient.Session> owned = new ArrayList<>();
     @Before public void init() {
         UserTrustManager.init(InstrumentationRegistry.getInstrumentation().getTargetContext());
     }
     @After public void close() throws Exception {
         for (ServerConnection connection : connections) connection.disconnect();
         Thread.sleep(700);
+        for (SessionLobbyClient.Session room : owned) SessionLobbyClient.delete(room);
     }
     private LiveRelayAuthTest.Events connect(SessionLobbyClient.Session room) throws Exception {
         LiveRelayAuthTest.Events events = new LiveRelayAuthTest.Events();
@@ -31,6 +33,7 @@ public class LiveSessionLobbyTest {
     }
     @Test public void createJoinRelayAndFullRoom() throws Exception {
         SessionLobbyClient.Session owner = SessionLobbyClient.create();
+        owned.add(owner);
         LiveRelayAuthTest.Events a = connect(owner);
         SessionLobbyClient.Session guest = SessionLobbyClient.join(owner.code.toLowerCase());
         assertEquals(owner.number, guest.number);

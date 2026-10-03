@@ -53,6 +53,7 @@
         <CheckBoxPreference
             android:title="@string/settings_adv_replay"
             android:key="network"
+            android:defaultValue="true"
 
             android:summary="@string/settings_adv_replay_summary"
             />

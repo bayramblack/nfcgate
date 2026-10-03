@@ -14,6 +14,7 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import java.util.concurrent.TimeUnit;
@@ -28,6 +29,8 @@ import work.undernet.nfc.network.data.NetworkStatus;
 public class SessionLobbyUiTest {
     @Rule public ActivityTestRule<MainActivity> activity = new ActivityTestRule<>(MainActivity.class);
     private ServerConnection peer;
+    private SessionLobbyClient.Session owned;
+    @Before public void idle() { ui(() -> SessionCoordinator.get(activity.getActivity()).leave()); }
     private void ui(Runnable task) {
         InstrumentationRegistry.getInstrumentation().runOnMainSync(task);
         InstrumentationRegistry.getInstrumentation().waitForIdleSync();
@@ -46,9 +49,26 @@ public class SessionLobbyUiTest {
         return ((TextView) activity.getActivity().findViewById(id)).getText().toString()
                 .equals(activity.getActivity().getString(string));
     }
+    private void leaveFromLibrary() {
+        ui(() -> activity.getActivity().findViewById(R.id.session_another).performClick());
+        ui(() -> {
+            for (View root : android.view.inspector.WindowInspector.getGlobalWindowViews()) {
+                View leave = root.findViewById(R.id.session_leave);
+                if (leave != null) { leave.performClick(); return; }
+            }
+            fail("Session library leave button missing");
+        });
+    }
     @After public void close() throws Exception {
+        ui(() -> {
+            SessionCoordinator coordinator = SessionCoordinator.get(activity.getActivity());
+            coordinator.leave();
+            if (owned != null) for (SavedSessionStore.Room room : coordinator.store.all())
+                if (room.session.code.equals(owned.code)) coordinator.forget(room);
+        });
         if (peer != null) peer.disconnect();
         Thread.sleep(700);
+        if (owned != null) SessionLobbyClient.delete(owned);
     }
     @Test public void firstScreenCreateQrPartnerAndLeave() throws Exception {
         waitFor(() -> text(R.id.connection_status, R.string.connection_offline));
@@ -56,10 +76,19 @@ public class SessionLobbyUiTest {
             assertEquals(View.GONE, activity.getActivity().findViewById(R.id.relay_workspace).getVisibility());
             activity.getActivity().findViewById(R.id.session_create).performClick();
         });
+        ui(() -> {
+            for (View root : android.view.inspector.WindowInspector.getGlobalWindowViews()) {
+                EditText input = root.findViewById(R.id.session_name_input);
+                if (input != null) {
+                    input.setText("UI create test"); root.findViewById(android.R.id.button1).performClick(); return;
+                }
+            }
+            fail("Create name dialog missing");
+        });
         waitFor(() -> text(R.id.connection_status, R.string.connection_waiting));
+        ui(() -> owned = SessionCoordinator.get(activity.getActivity()).store.active().session);
         final String[] code = {null};
         ui(() -> {
-            code[0] = ((TextView)activity.getActivity().findViewById(R.id.connection_code)).getText().toString();
             activity.getActivity().findViewById(R.id.session_qr).performClick();
         });
         // Obtain the dialog's QR via the focused window, then decode the bitmap.
@@ -67,7 +96,10 @@ public class SessionLobbyUiTest {
         ui(() -> {
             for (View root : android.view.inspector.WindowInspector.getGlobalWindowViews()) {
                 ImageView image = root.findViewById(R.id.invite_qr);
-                if (image != null) qr[0] = ((BitmapDrawable) image.getDrawable()).getBitmap();
+                if (image != null) {
+                    qr[0] = ((BitmapDrawable) image.getDrawable()).getBitmap();
+                    code[0] = ((TextView) root.findViewById(R.id.connection_code)).getText().toString();
+                }
             }
         });
         assertNotNull(qr[0]);
@@ -87,7 +119,7 @@ public class SessionLobbyUiTest {
         assertEquals(NetworkStatus.CONNECTED, events.statuses.poll(15, TimeUnit.SECONDS));
         peer.send(room.number, C2S.ServerData.newBuilder().setOpcode(C2S.ServerData.Opcode.OP_SYN).build().toByteArray());
         waitFor(() -> text(R.id.connection_status, R.string.connection_ready));
-        ui(() -> activity.getActivity().findViewById(R.id.session_leave).performClick());
+        leaveFromLibrary();
         waitFor(() -> text(R.id.connection_status, R.string.connection_offline));
         assertNotNull(events.messages.poll(5, TimeUnit.SECONDS));
     }
@@ -95,6 +127,7 @@ public class SessionLobbyUiTest {
     @Test public void joinFromFirstScreenAndValidateInput() throws Exception {
         UserTrustManager.init(activity.getActivity());
         SessionLobbyClient.Session owner = SessionLobbyClient.create();
+        owned = owner;
         LiveRelayAuthTest.Events events = new LiveRelayAuthTest.Events();
         peer = new ServerConnection(NetworkManager.SERVER_HOST, NetworkManager.SERVER_PORT,
                 true, owner.number, owner.secret).setCallback(events);
@@ -120,7 +153,7 @@ public class SessionLobbyUiTest {
         assertNotNull(events.messages.poll(5, TimeUnit.SECONDS));
         peer.send(owner.number, C2S.ServerData.newBuilder().setOpcode(C2S.ServerData.Opcode.OP_ACK).build().toByteArray());
         waitFor(() -> text(R.id.connection_status, R.string.connection_ready));
-        ui(() -> activity.getActivity().findViewById(R.id.session_leave).performClick());
+        leaveFromLibrary();
         waitFor(() -> text(R.id.connection_status, R.string.connection_offline));
     }
 }

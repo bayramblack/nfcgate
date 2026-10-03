@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <item type="id" name="session_name_input" />
+    <item type="id" name="saved_session_name" />
+    <item type="id" name="saved_session_enter" />
+    <item type="id" name="saved_session_options" />
+    <string name="sessions_title">Мои сеансы</string>
+    <string name="sessions_help">Можно сохранить несколько сеансов под разными именами. Одновременно активен только один.</string>
+    <string name="sessions_default">Сеанс</string>
+    <string name="sessions_new_name">Укажите название сеанса</string>
+    <string name="sessions_name_hint">Например: Сеанс 1 или сегодняшняя проверка</string>
+    <string name="sessions_invalid_name">Введите название длиной от 1 до 60 символов.</string>
+    <string name="sessions_enter">Войти</string>
+    <string name="sessions_active">Активен</string>
+    <string name="sessions_options">Параметры</string>
+    <string name="sessions_rename">Переименовать</string>
+    <string name="sessions_forget">Удалить из моего списка</string>
+    <string name="sessions_delete">Удалить сеанс для всех</string>
+    <string name="sessions_delete_confirm">Сеанс будет удалён для всех, а код приглашения перестанет работать.</string>
+    <string name="sessions_forget_confirm">Сеанс будет удалён с этого телефона. Для повторного входа понадобится код приглашения.</string>
+    <string name="sessions_leave_help">Вы вышли из сеанса. Чтобы вернуться, выберите его в списке «Мои сеансы».</string>
+    <string name="sessions_reconnecting">Повторное подключение… Ваше участие в сеансе сохранено.</string>
+    <string name="sessions_unavailable">Сейчас подключиться не удаётся. Возможно, сеанс заполнен или удалён. Данные для входа сохранены.</string>
+    <string name="sessions_partner_left">Второй участник вышел. Вы остались в сеансе и ждёте его.</string>
+    <string name="sessions_retry">Подключиться снова</string>
+    <string name="sessions_notification_channel">Подключение к сеансу UnderNet</string>
+    <string name="sessions_forbidden">Удалить сеанс для всех может только его создатель.</string>
+    <string name="sessions_actions">Создать другой сеанс или подключиться к нему</string>
+    <string name="sessions_leave">Выйти из сеанса</string>
+</resources>

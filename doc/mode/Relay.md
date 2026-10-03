@@ -26,19 +26,23 @@ Relayed devices:
 
 ## Usage
 
-UnderNet opens on the Persian connection screen (`????? ? ????`). No hostname,
-port, session number, or password needs to be entered in Settings.
+UnderNet opens on the Persian connection screen. No hostname, port, session
+number, or password needs to be entered in Settings.
 
-1. First phone: tap **???? ????** (Create session). The server creates a temporary
-   private session and the app connects automatically.
-2. Send the invitation with **????? ??**, or display **????? QR**.
-3. Second phone: tap **?????? ?? ????** (Join session), then enter/paste the code
-   or tap **???? QR**. The app resolves the invitation over trusted TLS and connects.
+1. First phone: tap Create session and choose a name. The server saves a private
+   session and the app connects automatically.
+2. Send the invitation code, or display its QR.
+3. Second phone: tap Join session, then enter/paste the code or select Scan QR.
+   The app resolves the invitation over trusted TLS and connects.
 4. The screen shows whether it is waiting for the other phone or both are connected.
-5. Choose the roles: **Reader** is the phone reading the original tag; **Tag** is
-   the phone placed against the external reader. The two roles must differ.
-6. **???? ?? ????** leaves the session. Opening another section also closes its
-   relay connection. Return to the connection screen to create or join again.
+5. Choose the roles: Reader is the phone reading the original tag; Tag is the
+   phone placed against the external reader. The two roles must differ.
+6. Leave session clears the active membership and closes the connection. The room
+   stays in My sessions for easy re-entry. Opening Settings or another screen,
+   backgrounding the app, or a partner leaving does not clear your membership.
+7. My sessions lists all saved rooms. Enter switches to one selected room;
+   Options offers a personal display-name change and removal from this phone.
+   The creator can also delete the room for everyone (a separate confirmation).
 
 The fixed endpoint is `relay.undernet.work:5566`. The invitation is a random
 16-character code (hyphens are optional). The QR contains `undernet:join:<code>`;
@@ -53,24 +57,43 @@ The two-device limit and fixed authenticated session remain enforced. Anyone
 holding the invitation can request credentials and occupy an available slot;
 there is no account identity, owner approval, or server-enforced Reader/Tag role.
 
-An unused new invitation expires after 10 minutes. While at least one device is
-connected it remains valid. After the last device leaves it expires after 60
-seconds. Temporary invitations are stored in server memory and are lost on server
-restart. The existing three administrator-configured sessions remain supported
-by the protocol. Their credentials are no longer editable in the normal Settings UI.
-Online Replay uses the last automatically received session credentials.
+Production uses `--lobby-store /var/lib/undernet-relay/rooms.sqlite`. Saved rooms
+and invitations survive inactivity, disconnects and relay restarts, until their
+creator explicitly deletes them. A separate owner capability is returned only
+at creation; an invitation or relay secret cannot authorize deletion.
+Default session names originate on the server; renaming a saved entry is a
+personal alias on that phone. There is no account-based multi-device library sync.
 
-A public TLS socket with no traffic still has the existing 300-second idle timeout.
-For an inactive session that disconnects, create or join again from this screen.
+The app stores its room library and active choice privately. A connected-device
+foreground service owns one selected relay connection, independently of fragments.
+A persistent notification offers Open and Leave (notification permission is
+requested once on Android 13+). Temporary transport failures trigger bounded
+reconnection attempts; they do not clear the selected room. Full/deleted-session
+rejections preserve the local selection with an explicit Retry/Leave choice.
+Reopening a force-stopped app restores its selected room. Android force-stop,
+power loss, offline networks and device restrictions can stop an actual socket;
+retained membership is not a promise of uninterrupted background transport.
+
+An authenticated ping is sent every 25 seconds. Missing acknowledgement for at
+least 75 seconds triggers a reconnect. The server consumes ping/pong frames and
+never forwards them to peers/plugins. Stored sessions have no old 300-second idle
+expiration; static configured sessions and the optional non-persistent lobby
+retain their legacy timeout behavior.
+
+One phone can save many rooms, with one active NFC relay at a time. Every private
+room still accepts at most two concurrent connections. The original one-byte
+session header limits the whole server to 255 slots; three administrator sessions
+leave up to 252 persistent lobby rooms. Forgotten entries do not delete a server
+room; its creator can delete it to release capacity.
 
 NFC traffic is captured in `Logging` for later use. Physical NFC/HCE/Xposed
 operation still requires compatible real phones; the emulator tests connection
 setup, authentication, invitations, QR generation, and UI state only.
 
 Tests:
-- Host regression: `python -m unittest test_session_auth test_session_lobby -v`
+- Host regression: `python -m unittest test_session_auth test_session_lobby test_persistent_sessions -v`
   in the sibling `nfcgate-server` repository.
-- Opt-in Android tests: `LiveSessionLobbyTest` and `SessionLobbyUiTest` connect to
+- Opt-in Android tests: `LiveSessionLobbyTest`, `SessionLobbyUiTest`, and `PersistentSessionsUiTest` connect to
   the deployed service and create temporary test sessions.
 - The original Java/Python authentication probe remains in
   `chore/test_session_auth.py` (JDK and Python cryptography required).

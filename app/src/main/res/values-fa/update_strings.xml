@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="menu_update">بررسی به‌روزرسانی</string>
+    <string name="update_checking">در حال بررسی نسخهٔ جدید…</string>
+    <string name="update_current">آخرین نسخه را دارید.</string>
+    <string name="update_available">نسخهٔ جدید آماده است</string>
+    <string name="update_description">نسخهٔ %1$s از UnderNet آماده است. دانلود شود؟ نصب با تأیید شما در اندروید انجام می‌شود.</string>
+    <string name="update_download">دانلود به‌روزرسانی</string>
+    <string name="update_later">بعداً</string>
+    <string name="update_downloading">در حال دانلود به‌روزرسانی…</string>
+    <string name="update_wait">تا پایان دانلود و بررسی فایل، این صفحه را باز نگه دارید.</string>
+    <string name="update_failed">بررسی یا دانلود به‌روزرسانی انجام نشد. دوباره امتحان کنید.</string>
+    <string name="update_permission">در صفحهٔ تنظیمات اندروید، اجازهٔ نصب به UnderNet بدهید و سپس به این صفحه برگردید.</string>
+    <string name="update_incompatible">این به‌روزرسانی به نسخهٔ جدیدتری از اندروید نیاز دارد.</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wizard_invite">دعوت نفر مقابل</string>
+    <string name="wizard_change_session">تغییر جلسه</string>
+    <string name="wizard_step_session">۱ از ۳ · جلسه</string>
+    <string name="wizard_step_role">۲ از ۳ · نقش گوشی</string>
+    <string name="wizard_step_nfc">۳ از ۳ · NFC</string>
+    <string name="wizard_start">شروع NFC</string>
+    <string name="wizard_change_role">تغییر نقش گوشی</string>
+    <string name="wizard_nfc_ready">آمادهٔ شروع</string>
+    <string name="wizard_nfc_running">NFC فعال است</string>
+    <string name="wizard_nfc_received">داده مبادله شد</string>
+</resources>

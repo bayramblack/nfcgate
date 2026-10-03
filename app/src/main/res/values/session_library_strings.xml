@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <item type="id" name="session_name_input" />
+    <item type="id" name="saved_session_name" />
+    <item type="id" name="saved_session_enter" />
+    <item type="id" name="saved_session_options" />
+    <string name="sessions_title">My sessions</string>
+    <string name="sessions_help">Save multiple named sessions. Only one session is active at a time.</string>
+    <string name="sessions_default">Session</string>
+    <string name="sessions_new_name">Choose a session name</string>
+    <string name="sessions_name_hint">For example: Session 1 or today\'s test</string>
+    <string name="sessions_invalid_name">Enter a name from 1 to 60 characters.</string>
+    <string name="sessions_enter">Enter</string>
+    <string name="sessions_active">Active</string>
+    <string name="sessions_options">Options</string>
+    <string name="sessions_rename">Rename</string>
+    <string name="sessions_forget">Remove from my list</string>
+    <string name="sessions_delete">Delete session for everyone</string>
+    <string name="sessions_delete_confirm">This removes the session for everyone and invalidates its invite code.</string>
+    <string name="sessions_forget_confirm">This removes the session from this phone. You will need its invite code to rejoin.</string>
+    <string name="sessions_leave_help">You left the session. Rejoin from My sessions.</string>
+    <string name="sessions_reconnecting">Reconnecting… Your session membership is saved.</string>
+    <string name="sessions_unavailable">Cannot connect right now. The session may be full or deleted. Your saved membership is retained.</string>
+    <string name="sessions_partner_left">The other person left. You are still in the session and waiting for them.</string>
+    <string name="sessions_retry">Reconnect</string>
+    <string name="sessions_notification_channel">UnderNet session connection</string>
+    <string name="sessions_forbidden">Only the session creator can delete it for everyone.</string>
+    <string name="sessions_actions">Create or join another session</string>
+    <string name="sessions_leave">Leave session</string>
+</resources>

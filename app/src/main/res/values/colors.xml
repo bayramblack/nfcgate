@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="cyber_background">#080D18</color>
+    <color name="cyber_surface">#111B2B</color>
+    <color name="cyber_raised">#19273A</color>
+    <color name="cyber_border">#2B4056</color>
+    <color name="cyber_text">#F0F6FC</color>
+    <color name="cyber_muted">#A8B8CC</color>
+    <color name="cyber_cyan">#59F0DA</color>
+    <color name="cyber_pink">#ECA4FF</color>
+    <color name="cyber_danger">#FF9DAB</color>
+    <color name="about_background_color">@color/cyber_background</color>
+    <color name="about_text_color">@color/cyber_text</color>
+    <color name="about_description_text_color">@color/cyber_muted</color>
+    <color name="about_item_text_color">@color/cyber_text</color>
+    <color name="about_item_icon_color">@color/cyber_cyan</color>
+    <color name="about_separator_color">@color/cyber_border</color>
     <item name="black" type="color">#000000</item>
     <color name="ic_launcher_background">#07111E</color>
 

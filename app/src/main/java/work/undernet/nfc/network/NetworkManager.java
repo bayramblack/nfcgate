@@ -1,13 +1,13 @@
 package work.undernet.nfc.network;
 
 import android.content.SharedPreferences;
+import android.content.Context;
 import androidx.preference.PreferenceManager;
 import android.util.Log;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 
-import work.undernet.nfc.gui.MainActivity;
 import work.undernet.nfc.network.c2s.C2S;
 import work.undernet.nfc.network.data.NetworkStatus;
 import work.undernet.nfc.util.NfcComm;
@@ -23,7 +23,9 @@ public class NetworkManager implements ServerConnection.Callback {
     }
 
     // references
-    private final MainActivity mActivity;
+    private final Context mActivity;
+    private boolean keepConnectionOnPartnerLeft;
+    private volatile long lastPong;
     private ServerConnection mConnection;
     private final Callback mCallback;
 
@@ -32,10 +34,21 @@ public class NetworkManager implements ServerConnection.Callback {
     public static final int SERVER_PORT = 5566;
     private int mSessionNumber;
 
-    public NetworkManager(MainActivity activity, Callback cb) {
-        mActivity = activity;
+    public NetworkManager(Context activity, Callback cb) {
+        mActivity = activity.getApplicationContext();
         mCallback = cb;
     }
+
+    public NetworkManager keepConnectionOnPartnerLeft() {
+        keepConnectionOnPartnerLeft = true;
+        return this;
+    }
+
+    public void ping() {
+        if (mConnection != null) mConnection.send(mSessionNumber,
+                "UNDERNET-PING/1".getBytes(java.nio.charset.StandardCharsets.UTF_8));
+    }
+    public long getLastPong() { return lastPong; }
 
     public void connect() {
         // read fresh preference data
@@ -73,6 +86,10 @@ public class NetworkManager implements ServerConnection.Callback {
 
     @Override
     public void onReceive(byte[] data) {
+        if (java.util.Arrays.equals(data, "UNDERNET-PONG/1".getBytes(java.nio.charset.StandardCharsets.UTF_8))) {
+            lastPong = android.os.SystemClock.elapsedRealtime();
+            return;
+        }
         final C2S.ServerData serverData;
         try {
             serverData = C2S.ServerData.parseFrom(data);
@@ -98,7 +115,7 @@ public class NetworkManager implements ServerConnection.Callback {
             case OP_FIN:
                 // our peer has disconnected
                 onNetworkStatus(NetworkStatus.PARTNER_LEFT);
-                mConnection.disconnect();
+                if (!keepConnectionOnPartnerLeft) mConnection.disconnect();
 
                 break;
             case OP_PSH:

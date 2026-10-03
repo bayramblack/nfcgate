@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="nav_pos_short">Терминал</string>
+    <string name="nav_logs_short">Журнал</string>
+    <string name="nav_status_short">Устройство</string>
+    <string name="nav_tools_short">Ещё</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <item name="join_code_input" type="id" />
+    <item name="invite_qr" type="id" />
+    <string name="connection_offline">尚未连接</string>
+    <string name="connection_intro">创建一个会话，或加入另一人的会话以开始。</string>
+    <string name="connection_create">创建会话</string>
+    <string name="connection_create_help">获取邀请码并发送给另一位参与者。</string>
+    <string name="connection_join">加入会话</string>
+    <string name="connection_join_help">输入另一人的邀请码或扫描对方的二维码。</string>
+    <string name="connection_connect">连接</string>
+    <string name="connection_cancel">取消</string>
+    <string name="connection_code_hint">会话邀请码</string>
+    <string name="connection_connecting">正在连接…</string>
+    <string name="connection_creating">正在创建会话…</string>
+    <string name="connection_joining">正在加入会话…</string>
+    <string name="connection_waiting">已连接，正在等待另一位参与者</string>
+    <string name="connection_ready">两位参与者都已连接</string>
+    <string name="connection_choose_role">这部手机应该放在卡片旁，还是 POS 机旁？</string>
+    <string name="connection_active">会话已就绪。一部手机放在卡片旁，另一部放在 POS 机旁。</string>
+    <string name="connection_invite_label">此会话的邀请码</string>
+    <string name="connection_invite_help">另一位参与者应点击「加入会话」，然后输入此邀请码或扫描二维码。</string>
+    <string name="connection_qr">显示二维码</string>
+    <string name="connection_scan">扫描二维码</string>
+    <string name="connection_scan_help">将相机对准 UnderNet 会话二维码。</string>
+    <string name="connection_share">分享邀请码</string>
+    <string name="connection_copy">复制邀请码</string>
+    <string name="connection_copied">已复制邀请码</string>
+    <string name="connection_close">关闭</string>
+    <string name="connection_leave">退出会话</string>
+    <string name="connection_bad_code">请输入有效的 16 位邀请码，或扫描会话二维码。</string>
+    <string name="connection_expired">邀请码无效或会话已结束。请向对方索取新邀请码。</string>
+    <string name="connection_full">此会话已有两位参与者。请创建新会话。</string>
+    <string name="connection_rate_limit">请求过多。请等待一分钟后重试。</string>
+    <string name="connection_capacity">服务器暂时无法创建会话，请稍后重试。</string>
+    <string name="connection_failed">连接失败。请检查网络后重试。</string>
+    <string name="connection_partner_left">另一位参与者已离开。要重新开始，请创建或加入一个会话。</string>
+    <string name="connection_tag">手机放在 POS 机旁</string>
+    <string name="connection_tag_description">这部手机模拟卡片。请将其靠近 POS 机的非接触式读卡区域。</string>
+    <string name="connection_reader">手机放在卡片旁</string>
+    <string name="connection_reader_description">将原卡贴在这部手机背面，由这部手机读取卡片。</string>
+    <string name="connection_tag_help">这部手机模拟卡片。将它靠近 POS 机的非接触式读卡区域。另一位参与者应选择「手机放在卡片旁」。</string>
+    <string name="connection_reader_help">将原卡贴在这部手机背面。另一位参与者应选择「手机放在 POS 机旁」。</string>
+    <string name="connection_settings_help">在 POS 机页面创建或加入会话。连接始终经过加密。</string>
+</resources>

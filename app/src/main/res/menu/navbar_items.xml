@@ -35,11 +35,19 @@
             />
     </group>
     <group android:id="@+id/group3" android:checkableBehavior="single">
+        <item android:id="@+id/nav_update" android:checkable="false"
+            android:title="@string/menu_update" android:icon="@drawable/ic_replay_black_24dp" />
+        <item android:id="@+id/nav_language"
+            android:checkable="false"
+            android:title="@string/menu_language"
+            android:icon="@drawable/ic_language" />
+        <!-- Settings is temporarily hidden. Uncomment this item to restore the screen.
         <item
             android:id="@+id/nav_settings"
             android:title="@string/menu_settings"
             android:icon="@drawable/ic_settings_black_24dp"
             />
+        -->
         <item
             android:id="@+id/nav_about"
             android:title="@string/menu_about"

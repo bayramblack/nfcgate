@@ -77,7 +77,7 @@ public class ReplayFragment extends BaseNetworkFragment implements LoggingFragme
 
         // get preference data
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        mOfflineReplay = !prefs.getBoolean("network", false);
+        mOfflineReplay = !prefs.getBoolean("network", true);
         mReplayMode = prefs.getString("mode", "index");
         mStatusBanner.setVisibility(!mOfflineReplay);
     }
