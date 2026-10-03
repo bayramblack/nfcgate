@@ -80,12 +80,11 @@ android {
     preBuild.dependsOn('downloadDeviceJson')
 
     buildTypes {
-        // Keep the certificate of existing direct installs so upgrades retain app data.
-        // This variant disables debugging; preserve the signing keystore for future releases.
+        // Direct distribution uses the dedicated release key for all future updates.
         distribution {
             initWith release
             debuggable false
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             matchingFallbacks = ['release']
         }
         release {

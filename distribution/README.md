@@ -24,10 +24,13 @@ Update errors do not block session use. Keep the app open during download.
    **last**, so the app never sees metadata for an incomplete file.
 7. Check both public URLs and the APK checksum over HTTPS.
 
-The `distribution` variant disables debugging and uses the existing local Android
-debug keystore **only to preserve signing continuity with the already distributed
-builds**. Preserve that keystore securely; replacing it breaks upgrades of those
-installations. This is a direct-install channel, not a Play Store release.
+The `distribution` variant disables debugging and uses the dedicated release
+keystore configured in `.ci-files/release-keystore.properties`. Set
+`SIGNING_KEYSTORE_PASSWORD` to the key password and
+`SIGNING_KEYSTORE_KEY_PASSWORD` to the store password before building.
+Preserve that keystore securely for future updates. Existing installations signed
+with the previous debug key must be uninstalled before installing this release;
+uninstalling removes their local app data. This is a direct-install channel.
 Never upload the keystore, server credentials, or the private room database.
 
 Nginx serves only port 443 using the existing relay certificate. Port 80 remains
